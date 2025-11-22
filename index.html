@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Chase Tutten | Web Development Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #e9f3f9;
+      color: #1f2933;
+      line-height: 1.5;
+    }
+
+    /* Header / hero */
+    header {
+      position: relative;
+      background: linear-gradient(to bottom right, rgba(15,23,42,0.85), rgba(56,189,248,0.7)), 
+                  url("cover.png") center/cover no-repeat;
+      color: #fff;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    header p.subtitle {
+      font-size: 1rem;
+      opacity: 0.9;
+      margin-bottom: 1.75rem;
+    }
+
+    .header-meta {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Layout */
+    main {
+      max-width: 1200px;
+      margin: -2.5rem auto 3rem;
+      padding: 0 1.5rem 2rem;
+    }
+
+    .portfolio-shell {
+      background: #f9fafb;
+      border-radius: 14px;
+      box-shadow: 0 18px 45px rgba(15,23,42,0.18);
+      padding: 2rem 2rem 2.5rem;
+    }
+
+    .intro-text {
+      margin-bottom: 1.75rem;
+    }
+
+    .intro-text h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .intro-text p {
+      font-size: 0.98rem;
+      color: #4b5563;
+    }
+
+    /* Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 30px rgba(15,23,42,0.12);
+      border-color: #bfdbfe;
+    }
+
+    .project-img-wrapper {
+      width: 100%;
+      overflow: hidden;
+      background: #111827;
+    }
+
+    .project-img-wrapper img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .project-body {
+      padding: 1rem 1.1rem 1.3rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.35rem;
+      color: #2563eb;
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #111827;
+    }
+
+    .project-meta {
+      font-size: 0.82rem;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #4b5563;
+      flex: 1;
+    }
+
+    .project-footer {
+      margin-top: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .project-footer a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #2563eb;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #2563eb;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .project-footer a:hover {
+      background: #2563eb;
+      color: #ffffff;
+    }
+
+    .project-footer span {
+      color: #9ca3af;
+      font-size: 0.78rem;
+    }
+
+    /* Under construction card */
+    .under-construction {
+      background: linear-gradient(135deg, #f97316, #facc15);
+      color: #111827;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2.8rem 1rem;
+    }
+
+    .under-construction h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .under-construction p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    @media (max-width: 640px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      main {
+        margin-top: -1.6rem;
+        padding: 0 1rem 2rem;
+      }
+
+      .portfolio-shell {
+        padding: 1.4rem 1.1rem 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Chase Tutten Portfolio</h1>
+  <p class="subtitle">Selected projects from Web Development & Interactive Design coursework.</p>
+  <div class="header-meta">
+    3 Practice Activities · 2 Partner Labs · 4 Individual Assignments
+  </div>
+</header>
+
+<main>
+  <section class="portfolio-shell">
+    <div class="intro-text">
+      <h2>Course Portfolio Overview</h2>
+      <p>
+        This portfolio showcases my work from the semester, including responsive restaurant layouts, record store
+        concepts, JavaScript interactions, and content-focused sites. Each card below links to a dedicated folder
+        containing the full assignment and a way to return to this main page.
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- PRACTICE ACTIVITIES -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="practice actvity gme.png" alt="Practice Activity – Good Mexican Eats landing page">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Practice Activity</div>
+          <div class="project-title">Good Mexican Eats Landing</div>
+          <div class="project-meta">HTML · CSS · Hero layout</div>
+          <p class="project-desc">
+            Single-page restaurant hero with centered call-to-action and full-bleed background image.
+          </p>
+          <div class="project-footer">
+            <a href="practice1/index.html">View Project</a>
+            <span>Folder: practice1</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="selling on the web.png" alt="Practice Activity – selling sneakers page">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Practice Activity</div>
+          <div class="project-title">Selling on the Web</div>
+          <div class="project-meta">HTML · Content layout</div>
+          <p class="project-desc">
+            Marketing page for a sneaker collection highlighting features, bullet lists, and external links.
+          </p>
+          <div class="project-footer">
+            <a href="practice2/index.html">View Project</a>
+            <span>Folder: practice2</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="lesson 8 lab.png" alt="Practice Activity – customizable page with to-do list">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Practice Activity</div>
+          <div class="project-title">Interactive Customization Page</div>
+          <div class="project-meta">HTML · CSS · JavaScript</div>
+          <p class="project-desc">
+            Lesson 8 lab featuring user name/message customization and a simple JavaScript to-do list.
+          </p>
+          <div class="project-footer">
+            <a href="practice3/index.html">View Project</a>
+            <span>Folder: practice3</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PARTNER LABS -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="partner lab.png" alt="Partner lab screenshot">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Partner Lab</div>
+          <div class="project-title">Responsive Layout Lab</div>
+          <div class="project-meta">Collaboration · Layout</div>
+          <p class="project-desc">
+            Joint project focusing on page structure, spacing, and client-style copy for a shared concept.
+          </p>
+          <div class="project-footer">
+            <a href="partnerlab1/index.html">View Project</a>
+            <span>Folder: partnerlab1</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="sneaker sale.png" alt="Exclusive sneaker collection page">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Partner Lab</div>
+          <div class="project-title">Sneaker Collection Feature</div>
+          <div class="project-meta">Collaboration · Content design</div>
+          <p class="project-desc">
+            Detailed sneaker feature layout using strong typography, product storytelling, and large imagery.
+          </p>
+          <div class="project-footer">
+            <a href="partnerlab2/index.html">View Project</a>
+            <span>Folder: partnerlab2</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- INDIVIDUAL ASSIGNMENTS -->
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="responsive restaurant.png" alt="Responsive restaurant site with media queries">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Individual Assignment</div>
+          <div class="project-title">Good Mexican Eats – Responsive Site</div>
+          <div class="project-meta">Multi-page · Media queries</div>
+          <p class="project-desc">
+            Full restaurant website using responsive cards, gradients, and mobile-friendly navigation.
+          </p>
+          <div class="project-footer">
+            <a href="individual1/index.html">View Project</a>
+            <span>Folder: individual1</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="record store.png" alt="Classic Records inventory page">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Individual Assignment</div>
+          <div class="project-title">Classic Records Store</div>
+          <div class="project-meta">Tables · Gallery</div>
+          <p class="project-desc">
+            Record shop concept featuring featured album artwork and an inventory table with pricing.
+          </p>
+          <div class="project-footer">
+            <a href="individual2/index.html">View Project</a>
+            <span>Folder: individual2</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-img-wrapper">
+          <img src="japan population.png" alt="Japan population decline site overview page">
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Individual Assignment</div>
+          <div class="project-title">Japan’s Population Decline</div>
+          <div class="project-meta">Informational site</div>
+          <p class="project-desc">
+            Research-driven site with navigation between overview, causes, and solutions for demographic change.
+          </p>
+          <div class="project-footer">
+            <a href="individual3/index.html">View Project</a>
+            <span>Folder: individual3</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Under Construction: Individual Assignment 4 -->
+      <article class="project-card">
+        <div class="project-img-wrapper under-construction">
+          <div>
+            <h3>Final Project – Coming Soon</h3>
+            <p>Individual Assignment 4 is under construction and will be added here once complete.</p>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-tag">Individual Assignment</div>
+          <div class="project-title">Final Project (Under Construction)</div>
+          <div class="project-meta">Placeholder page</div>
+          <p class="project-desc">
+            This link points to an “under construction” page that will host my final web development project.
+          </p>
+          <div class="project-footer">
+            <a href="individual4/index.html">View Page</a>
+            <span>Folder: individual4</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Chase Tutten ·
+  Contact: <a href="mailto:jct5604@psu.edu">jct5604@psu.edu</a>
+</footer>
+
+<script>
+  // Auto-update year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
